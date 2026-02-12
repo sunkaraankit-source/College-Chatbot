@@ -1,0 +1,79 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey", "good morning", "good evening"],
+      "responses": ["Hello! How can I help you?", "Hi! Ask me anything about VIT-AP."]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "goodbye", "see you"],
+      "responses": ["Goodbye!", "Have a great day!"]
+    },
+    {
+      "tag": "admission_process",
+      "patterns": ["admission process", "how to apply", "application procedure"],
+      "responses": ["Apply through the official VIT admission portal."]
+    },
+    {
+      "tag": "placements",
+      "patterns": ["placement stats", "highest package", "companies visiting"],
+      "responses": ["Top companies visit every year with strong placement records."]
+    },
+    {
+      "tag": "hostel",
+      "patterns": ["hostel facility", "accommodation", "room types"],
+      "responses": ["Hostels provide AC and non-AC rooms with WiFi and security."]
+    },
+    {
+      "tag": "scholarship",
+      "patterns": ["scholarship", "financial aid"],
+      "responses": ["Scholarships are available based on merit."]
+    },
+    {
+      "tag": "library",
+      "patterns": ["library timing", "digital library"],
+      "responses": ["Library provides books and digital resources."]
+    },
+    {
+      "tag": "transport",
+      "patterns": ["bus facility", "transport"],
+      "responses": ["Transport is available from nearby cities which are Guntur,Vijayawada and Tenali."]
+    },
+    {
+      "tag": "clubs",
+      "patterns": ["student clubs", "technical clubs"],
+      "responses": ["Many clubs including and Chapters are there in the College including technical,non-technical and cultural club."]
+    },
+    {
+      "tag": "wifi",
+      "patterns": ["wifi available", "internet"],
+      "responses": ["High-speed WiFi available across campus."]
+    },
+    {
+      "tag": "canteen",
+      "patterns": ["food options", "canteen"],
+      "responses": ["Multiple food courts available."]
+    },
+    {
+      "tag": "sports",
+      "patterns": ["sports facilities", "gym"],
+      "responses": ["Sports complex and gym available."]
+    },
+    {
+      "tag": "courses",
+      "patterns": ["programs offered", "branches"],
+      "responses": ["CSE, ECE, Mechanical,Integrated M-TECH more."]
+    },
+    {
+      "tag": "events",
+      "patterns": ["college events", "technical fest"],
+      "responses": ["Various cultural and technical events happen yearly which includes VITOPIA."]
+    },
+    {
+      "tag": "contact",
+      "patterns": ["contact number", "helpdesk"],
+      "responses": ["Check official website for contact details."]
+    }
+  ]
+}
