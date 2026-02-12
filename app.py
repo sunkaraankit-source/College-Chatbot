@@ -1,9 +1,12 @@
 import streamlit as st
+import os
 import pickle
 import json
 import random
 import re
 from fees import fees
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.linear_model import LogisticRegression
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(page_title="VIT-AP AI Assistant", layout="centered")
@@ -53,14 +56,38 @@ st.markdown("""
 # ---------------- LOAD MODEL ----------------
 # model = pickle.load(open("model.pkl","rb"))
 # vectorizer = pickle.load(open("vectorizer.pkl","rb"))
-import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 model_path = os.path.join(BASE_DIR, "model.pkl")
 vectorizer_path = os.path.join(BASE_DIR, "vectorizer.pkl")
 
+# ---------- TRAIN MODEL IF NOT EXISTS ----------
+if not os.path.exists(model_path) or not os.path.exists(vectorizer_path):
+
+    with open("intents.json") as f:
+        data = json.load(f)
+
+    sentences = []
+    labels = []
+
+    for intent in data["intents"]:
+        for pattern in intent["patterns"]:
+            sentences.append(pattern)
+            labels.append(intent["tag"])
+
+    vectorizer = CountVectorizer()
+    X = vectorizer.fit_transform(sentences)
+
+    model = LogisticRegression()
+    model.fit(X, labels)
+
+    pickle.dump(model, open(model_path, "wb"))
+    pickle.dump(vectorizer, open(vectorizer_path, "wb"))
+
+# ---------- LOAD MODEL ----------
 model = pickle.load(open(model_path, "rb"))
 vectorizer = pickle.load(open(vectorizer_path, "rb"))
+
+
 
 
 with open("intents.json") as f:
